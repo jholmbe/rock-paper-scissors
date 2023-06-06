@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+        /*declare and initialize string constansts for rock, paper, scissors, 
+        draw, win, and lose*/
+        const rock = "rock"
+            , paper = "paper"
+            , scissor = "scissor";
+        const draw = "Draw"
+            , win = "Congrats u won"
+            , lose = "Loser";
+        //getComputerChoice returns a random number between 1-3, 1 represents rock, then its paper, etc
+        function getComputerChoice() {
+            let randomNumber = Math.floor(Math.random() * 3) + 1;
+            return randomNumber;
+        }
+        //playRound plays a single round of RPS that takes user choice and computer choice and outputs who won
+        function playRound(userSelection, computerSelection) {
+            if (userSelection == computerSelection) {
+                return draw;
+            }
+            else if (userSelection == 1) {
+                if (computerSelection == 2) {
+                    return win;
+                }
+                else {
+                    return lose;
+                }
+            }
+            else if (userSelection == 2) {
+                if (computerSelection == 3) {
+                    return win;
+                }
+                else {
+                    return lose;
+                }
+            }
+            else if (userSelection == 3) {
+                if (computerSelection == 1) {
+                    return win;
+                }
+                else {
+                    return lose;
+                }
+            }
+        }
+        //main program start
+        //assign computer selection to getComputerChoice()
+        let computerSelection = getComputerChoice();
+        //declare userInput and initialize it to the user input
+        let userInput = prompt("Type either rock, paper, or scissors");
+        //declare userSelection and assign it a value depending on userInput
+        let userSelection;
+        userInput = userInput.toLowerCase();
+        if (userInput === "rock") {
+            userSelection = 3;
+        }
+        else if (userInput === "paper") {
+            userSelection = 2;
+        }
+        else if (userInput === "scissor" || userInput === "scissors") {
+            userSelection = 1;
+        }
+        console.log(userSelection);
+        console.log(computerSelection);
+        //call a single round of rps
+        console.log(playRound(userSelection, computerSelection));
+
+    </script>
+</body>
+
+</html>
