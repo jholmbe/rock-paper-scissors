@@ -55,17 +55,20 @@
         }
         //Asks user for a value and returns the value converted into a number
         function getUserInput() {
-            let userInput = prompt("Type either rock, paper, or scissors");
-             //declare userSelection and assign it a value depending on userInput
-            userInput = userInput.toLowerCase();
+            let userInput;
+            while (userInput != rock && userInput != paper && userInput != paper) {
+                userInput = prompt("Type either rock, paper, or scissors").toLowerCase();
+            }
+
+            //declare userSelection and assign it a value depending on userInput
             let userSelection;
-            if (userInput === "rock") {
+            if (userInput == rock) {
                 userSelection = 3;
             }
-            else if (userInput === "paper") {
+            else if (userInput == paper) {
                 userSelection = 2;
             }
-            else if (userInput === "scissor" || userInput === "scissors") {
+            else if (userInput == scissor) {
                 userSelection = 1;
             }
             return userSelection;
